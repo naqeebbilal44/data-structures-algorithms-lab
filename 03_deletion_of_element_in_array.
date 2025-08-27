@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+// Function to input array elements
+void inputArray(int arr[], int *size) {
+    printf("How many elements? ");
+    scanf("%d", size);
+
+    for (int i = 0; i < *size; i++) {
+        printf("Enter element %d: ", i + 1);
+        scanf("%d", &arr[i]);
+    }
+}
+
+// Function to display the array
+void displayArray(int arr[], int size) {
+    printf("Array: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+// Function to delete the first element
+void deleteFirst(int arr[], int *size) {
+    if (*size == 0) {
+        printf("Array is already empty!\n");
+        return;
+    }
+
+    for (int i = 0; i < *size - 1; i++) {
+        arr[i] = arr[i + 1];  // shift elements left
+    }
+    (*size)--;  // reduce size
+    printf("First element deleted.\n");
+}
+
+int main() {
+    int arr[100], size;
+
+    inputArray(arr, &size);
+    displayArray(arr, size);
+
+    deleteFirst(arr, &size);
+    displayArray(arr, size);
+
+    return 0;
+}
