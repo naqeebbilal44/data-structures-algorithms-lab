@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+// Function to replace element at given position
+void replaceAt(int arr[], int n, int pos, int value) {
+    if(pos < 0 || pos >= n) {
+        printf("Invalid position!\n");
+        return;
+    }
+    arr[pos] = value;   // just overwrite
+}
+
+void display(int arr[], int n) {
+    int i;
+    for(i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int arr[100], n, pos, value, i;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements:\n", n);
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Enter position to replace (0 to %d): ", n-1);
+    scanf("%d", &pos);
+    printf("Enter new value: ");
+    scanf("%d", &value);
+
+    replaceAt(arr, n, pos, value);  // function call
+
+    printf("Array after replacement:\n");
+    display(arr, n);
+
+    return 0;
+}
