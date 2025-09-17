@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+double fact(int n) {
+    if (n == 1 || n == 0) {  // Base case
+        return 1;
+    }
+    return n * fact(n - 1);  // Recursive call
+}
+
+int main() {
+    int n;  // Use int for factorial input
+    printf("Enter the number here: ");
+    scanf("%d", &n);  // Read as int
+
+    if (n < 0) {
+        printf("Factorial is not defined for negative numbers.\n");
+    } else {
+        double num = fact(n);
+        printf("Factorial of %d is %.0lf\n", n, num);  // %.0lf removes decimal places
+    }
+    return 0;
+}
